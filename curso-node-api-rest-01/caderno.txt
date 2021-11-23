@@ -1,0 +1,18 @@
+inicio do projeto
+
+1 - npm init -y -> gerar um package.json
+2 - instalar express -> npm install express
+3 - instalar body-parse -> npm install express
+4 - instalar sequelize -> npm install express
+5 - instalar mysql2 -> npm install express
+6 - instalar config -> npm install config
+
+aula 01
+-> criou a conexao com o banco de dados -> api/database/index.js
+-> criar a rota de fornecedores com os parametros inciais dentro de index.js
+-> crio os arquivos de rota em routes/providers/index.js -> rotas de fornecedores
+-> criou dentro de routes/providers -> ModelTableProvers -> criação das tabelas com sequelize
+-> criou o  api/database/createTable -> chamando o ModelTableProvers para criar as tabelas
+-> criou uma rota de index dentro de routes/providers/index.js, criou uma model de providers
+    -> dentro da model criou o metodo de lista e exporto a model
+    -> chamou o mesmo dentro das rotas e deu o response  
