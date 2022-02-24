@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2017",          
+    "module": "commonjs",                               /* Allow 'import x from y' when a module doesn't have a default export. */
+    "esModuleInterop": true,             
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,     
+    "strict": false,                               /* Skip type checking .d.ts files that are included with TypeScript. */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
