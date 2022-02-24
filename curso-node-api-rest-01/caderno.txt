@@ -16,3 +16,14 @@ aula 01
 -> criou uma rota de index dentro de routes/providers/index.js, criou uma model de providers
     -> dentro da model criou o metodo de lista e exporto a model
     -> chamou o mesmo dentro das rotas e deu o response  
+
+aula 02
+-> criar a rota de cadastro de fornecedores
+-> criar a model provider
+-> criou o metodo store -> criou o construct com as colunas de providers 
+-> dentro de store() chamo o TableProvers e seu metodo de insert
+-> na TableProvers criou o metodo insert
+-> mesmos passos para atualizar e acessar um fornecedor
+
+aula 03
+-> criar rota de delete

@@ -1,3 +1,4 @@
+const InvalidField = require("../../errors/InvalidField");
 const TableProviders = require("./TableProviders");
 
 class Provider {
@@ -13,7 +14,8 @@ class Provider {
     }
 
     async store () {
-        
+        this.valid();
+        console.log('this.category', this.category);
         const result = await TableProviders.insert({
             company: this.company,
             email: this.email,
@@ -40,7 +42,7 @@ class Provider {
     }
 
     async update () {
-        const provider = await TableProviders.findById(this.id);
+        await TableProviders.findById(this.id);
         const fields = ['company', 'email', 'category'];
         const dataUpdate = {};
 
@@ -53,10 +55,28 @@ class Provider {
         });
         
         if (Object.keys(dataUpdate).length === 0) {
-            throw new Error('Not found data for update.')
+            throw new DataNotFound();
         }
 
         await TableProviders.update(this.id, dataUpdate);
+    }
+
+    async destroy () {
+        await TableProviders.findById(this.id);
+        return await TableProviders.delete(this.id);
+    }
+
+    valid () {
+        const fields = ['company', 'email', 'category'];
+
+        fields.forEach((field) => {
+            const value = this[field];
+
+            if (typeof value !== 'string' || value.length === 0) {
+                // throw new Error(`The ${field} field is invalid`)
+                throw new InvalidField(field);
+            }
+        });
     }
 }
 

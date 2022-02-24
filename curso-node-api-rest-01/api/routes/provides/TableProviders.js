@@ -1,10 +1,9 @@
 const Model = require('./ModelTableProviders');
-
-
+const NotFound = require('../../errors/NotFound');
 
 module.exports = {
     list () {
-        return Model.findAll();
+        return Model.findAll({ raw: true });
     },
     insert (provider) {
         return Model.create(provider);
@@ -17,7 +16,7 @@ module.exports = {
         });
 
         if (!result) {
-            throw new Error('Provider not found.')
+            throw new NotFound() 
         }
 
         return result;
@@ -29,5 +28,10 @@ module.exports = {
                 where: { id: id }
             }
         )
+    },
+    delete(id) {
+        return Model.destroy({
+            where: {id: id}
+        })
     }
 }
